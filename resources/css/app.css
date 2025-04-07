@@ -1,0 +1,213 @@
+@import "tailwindcss";
+@import "./theme.css";
+@source "../views";
+
+@theme {
+    --font-sans: 'Urbanist', sans-serif;
+    --font-serif: 'Noto Serif JP', sans-serif;
+
+    --color-primary-50: oklch(0.982 0.018 155.826);
+    --color-primary-100: oklch(0.962 0.044 156.743);
+    --color-primary-200: oklch(0.925 0.084 155.995);
+    --color-primary-300: oklch(0.871 0.15 154.449);
+    --color-primary-400: oklch(0.792 0.209 151.711);
+    --color-primary-500: oklch(0.723 0.219 149.579);
+    --color-primary-600: oklch(0.627 0.194 149.214);
+    --color-primary-700: oklch(0.527 0.154 150.069);
+    --color-primary-800: oklch(0.448 0.119 151.328);
+    --color-primary-900: oklch(0.393 0.095 152.535);
+    --color-primary-950: oklch(0.266 0.065 152.934) --color-secondary-50: oklch(0.962 0.018 272.314);
+    --color-secondary-100: oklch(0.93 0.034 272.788);
+    --color-secondary-200: oklch(0.87 0.065 274.039);
+    --color-secondary-300: oklch(0.785 0.115 274.713);
+    --color-secondary-400: oklch(0.673 0.182 276.935);
+    --color-secondary-500: oklch(0.585 0.233 277.117);
+    --color-secondary-600: oklch(0.511 0.262 276.966);
+    --color-secondary-700: oklch(0.457 0.24 277.023);
+    --color-secondary-800: oklch(0.398 0.195 277.366);
+    --color-secondary-900: oklch(0.359 0.144 278.697);
+    --color-secondary-950: oklch(0.257 0.09 281.288);
+
+    --color-gray-50: #f9fafb;
+    --color-gray-100: #f3f4f6;
+    --color-gray-200: #e5e7eb;
+    --color-gray-300: #d1d5db;
+    --color-gray-400: #9ca3af;
+    --color-gray-500: #6b7280;
+    --color-gray-600: #4b5563;
+    --color-gray-700: #374151;
+    --color-gray-800: #1f2937;
+    --color-gray-900: #111827;
+
+    --color-red: #ef4444; /* Example Tailwind red */
+    --color-brand: #3b82f6; /* Example Tailwind blue[500] */
+    --color-transparent: transparent;
+    --color-current: currentColor;
+    --color-white: #ffffff;
+    --color-black: #000000;
+
+    --container: 1rem;
+    --container-sm: 1.5rem;
+    --container-lg: 2rem;
+
+    --opacity-0: 0;
+    --opacity-5: 0.05;
+    --opacity-10: 0.1;
+    --opacity-15: 0.15;
+    --opacity-20: 0.2;
+    --opacity-25: 0.25;
+    --opacity-30: 0.3;
+    --opacity-35: 0.35;
+    --opacity-40: 0.4;
+    --opacity-45: 0.45;
+    --opacity-50: 0.5;
+    --opacity-55: 0.55;
+    --opacity-60: 0.6;
+    --opacity-65: 0.65;
+    --opacity-70: 0.7;
+    --opacity-75: 0.75;
+    --opacity-80: 0.8;
+    --opacity-85: 0.85;
+    --opacity-90: 0.9;
+    --opacity-95: 0.95;
+    --opacity-100: 1;
+
+    --typography-base-font-size: 1rem;
+}
+  
+@layer utilities {
+    .container {
+        margin-left: auto;
+        margin-right: auto;
+        padding-left: var(--container);
+        padding-right: var(--container);
+    }
+
+    .sm\:container {
+        --container: var(--container-sm);
+    }
+
+    .lg\:container {
+        --container: var(--container-lg);
+    }
+
+    .max-w-prose {
+        max-width: 75ch;
+    }
+}
+  
+@layer base {
+    a {
+        cursor: pointer;
+        font-weight: 700;
+        color: var(--color-primary-600);
+    }
+
+    a:hover {
+        color: var(--color-primary-500);
+    }
+
+    a:active {
+        color: var(--color-primary-700);
+    }
+
+    strong {
+        color: var(--color-gray-900);
+    }
+
+    ol > li::before {
+        color: var(--color-primary-500);
+    }
+
+    ul > li::before {
+        background-color: var(--color-primary-500);
+        border-radius: 50%;
+    }
+
+    hr {
+        border-color: var(--color-gray-200);
+        border-top-width: 1px;
+    }
+
+    blockquote {
+        color: var(--color-gray-900);
+        border-left-color: var(--color-gray-200);
+    }
+
+    h1 {
+        font-family: var(--font-serif);
+        color: var(--color-gray-900);
+    }
+
+    h2,
+    h3,
+    h4 {
+        color: var(--color-gray-900);
+    }
+
+    pre {
+        background-color: var(--color-gray-800);
+        color: var(--color-gray-200);
+    }
+
+    figure figcaption {
+        color: var(--color-gray-500);
+    }
+
+    code {
+        color: var(--color-gray-900);
+    }
+
+    a code {
+        color: var(--color-gray-900);
+    }
+
+    thead {
+        color: var(--color-gray-900);
+        border-bottom-color: var(--color-gray-300);
+        border-bottom-width: 2px;
+    }
+
+    tbody tr {
+        border-bottom-color: var(--color-gray-200);
+        border-bottom-width: 2px;
+    }
+
+    :where(.prose) {
+        max-width: 75ch;
+    }
+
+    html {
+        font-size: 1rem;
+    }
+}
+  
+@layer components {
+    .button {
+        @apply cursor-pointer items-center justify-center rounded-xl border-2 border-transparent px-6 py-2 text-base font-bold tracking-wide shadow-md transition-colors duration-300 focus:ring-2 focus:ring-offset-2 focus:outline-none;
+    }
+
+    .button-base {
+        @apply text-base;
+    }
+
+    .button-xs {
+        @apply px-3 pt-1 pb-px text-xs;
+    }
+
+    .button-sm {
+        @apply px-4 pt-1.5 pb-1 text-sm;
+    }
+
+    .button-lg {
+        @apply px-6 py-2 text-lg;
+    }
+
+    .button-xl {
+        @apply px-7 py-2.5 text-xl;
+    }
+
+    .button-2xl {
+        @apply px-8 py-2.5 text-2xl;
+    }
+}
